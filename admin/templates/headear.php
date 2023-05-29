@@ -28,7 +28,7 @@ $url_base="http://localhost/website/admin/";
             <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/equipo">Equipos</a>
             <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/configuraciones">Configuraciones</a>
             <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/usuarios">Usuarios</a>
-            <a class="nav-item nav-link" href="<?php echo $url_base;?>login.php">Cerrar Seccion</a>
+            <a class="nav-item nav-link" href="<?php echo $url_base;?>login.php">Cerrar Sesión</a>
         </div>
     </nav>
   </header>
