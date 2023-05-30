@@ -14,7 +14,7 @@ if(isset($_GET['txtid'])){
 
   $fecha=$registro['fecha'];
   $titulo=$registro['titulo'];
-  $imagen=$registro['descripcion'];
+  $imagen=$registro['imagen'];
   $descripcion=$registro['descripcion'];
 
   //print para saber si funciona  
@@ -38,7 +38,7 @@ if(isset($_GET['txtid'])){
     SET 
     fecha=:fecha,
     titulo=:titulo,
-    descripcion=:descripcion,
+    descripcion=:descripcion
     WHERE id=:id");
  
     $sentencia->bindParam(":fecha",$fecha);
@@ -99,10 +99,10 @@ include("../../templates/headear.php");?>
 
   <form action="" method="post" enctype="multipart/form-data">
   <div class="mb-3">
-    <label for="" class="form-label">ID</label>
-    <input type="text"
-      class="form-control" name="txtid" id="txtid" readonly value="<?php echo $txtid;?>" aria-describedby="helpId" placeholder="txtid">
-</div> 
+    <label for="fecha" class="form-label">Fecha:</label>
+    <input type="date"
+      class="form-control" value="<?php echo $fecha;?>" name="fecha" id="fecha" aria-describedby="helpId" placeholder="Fecha">
+  </div> 
   <div class="mb-3">
     <label for="titulo" class="form-label">Titulo:</label>
     <input type="text"
