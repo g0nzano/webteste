@@ -15,6 +15,12 @@ $lista_portafolio=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 //print_r($lista_servicios);
 
 
+//selecionar entradas
+$sentencia=$conexion->prepare("SELECT * FROM `tbl_entradas`");
+$sentencia->execute();
+$lista_entradas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+//print_r($lista_servicios);
+
 ?>
 
 <!DOCTYPE html>
@@ -236,6 +242,9 @@ $lista_portafolio=$sentencia->fetchAll(PDO::FETCH_ASSOC);
           </h3>
         </div>
         <ul class="timeline">
+
+        <?php foreach($lista_entradas as $registros) { ?>
+          
           <li>
             <div class="timeline-image">
               <img
@@ -259,6 +268,7 @@ $lista_portafolio=$sentencia->fetchAll(PDO::FETCH_ASSOC);
               </div>
             </div>
           </li>
+          <?php }?>
           <li class="timeline-inverted">
             <div class="timeline-image">
               <img
