@@ -20,6 +20,12 @@ $sentencia->execute();
 $lista_entradas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 //print_r($lista_servicios);
 
+//selecionar entradas
+$sentencia=$conexion->prepare("SELECT * FROM `tbl_entradas`");
+$sentencia->execute();
+$lista_entradas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+//print_r($lista_servicios);
+
 ?>
 
 <!DOCTYPE html>
@@ -241,13 +247,7 @@ $lista_entradas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
           </h3>
         </div>
         <ul class="timeline">
-
-        <?php
-        $contador=1;
-        foreach($lista_entradas as $registros) { 
-          ?>
-          <li
-            <?php echo (($contador%2)==0)?'class="timeline-inverted"':""; ?> >
+          <li>
             <div class="timeline-image">
               <img
                 class="rounded-circle img-fluid"
@@ -267,13 +267,7 @@ $lista_entradas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
               </div>
             </div>
           </li>
-          
-          <?php 
-          $contador++;
-          }?>
-          
-
-          <!-- <li class="timeline-inverted">
+          <li class="timeline-inverted">
             <div class="timeline-image">
               <img
                 class="rounded-circle img-fluid"
