@@ -31,6 +31,9 @@ if($_POST){
 
     $sentencia->execute();
  
+    $mensaje="registro de servicio agregado con exito.";
+    header("Location:index.php?mensaje=".$mensaje);
+
 }
 
 

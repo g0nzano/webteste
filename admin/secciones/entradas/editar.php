@@ -77,15 +77,11 @@ if(isset($_GET['txtid'])){
       $sentencia->bindParam(":imagen",$nombre_archivo_imagen);
       $sentencia->bindParam(":id",$txtid);
       $sentencia->execute();
-      $mensaje="registro de servicio actualizado con exito.";
-      header("Location:index.php?mensaje=".$mensaje);
+      $imagen=$nombre_archivo_imagen;
 
     }
-
-
-
-
-
+    $mensaje="registro de servicio actualizado con exito.";
+      header("Location:index.php?mensaje=".$mensaje);
 
   }
 

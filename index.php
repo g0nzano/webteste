@@ -14,6 +14,11 @@ $sentencia->execute();
 $lista_portafolio=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 //print_r($lista_servicios);
 
+//selecionar entradas
+$sentencia=$conexion->prepare("SELECT * FROM `tbl_entradas`");
+$sentencia->execute();
+$lista_entradas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+//print_r($lista_servicios);
 
 ?>
 
@@ -236,30 +241,39 @@ $lista_portafolio=$sentencia->fetchAll(PDO::FETCH_ASSOC);
           </h3>
         </div>
         <ul class="timeline">
-          <li>
+
+        <?php
+        $contador=1;
+        foreach($lista_entradas as $registros) { 
+          ?>
+          <li
+            <?php echo (($contador%2)==0)?'class="timeline-inverted"':""; ?> >
             <div class="timeline-image">
               <img
                 class="rounded-circle img-fluid"
-                src="assets/img/about/1.jpg"
+                src="assets/img/about/<?php echo $registros["imagen"]; ?>"
                 alt="..."
               />
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
-                <h4>2009-2011</h4>
-                <h4 class="subheading">Our Humble Beginnings</h4>
+                <h4>  <?php echo $registros["fecha"]; ?></h4>
+                <h4 class="subheading"> <?php echo $registros["titulo"]; ?></h4>
               </div>
               <div class="timeline-body">
                 <p class="text-muted">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                  ut voluptatum eius sapiente, totam reiciendis temporibus qui
-                  quibusdam, recusandae sit vero unde, sed, incidunt et ea quo
-                  dolore laudantium consectetur!
+                <?php echo $registros["descripcion"]; ?>
                 </p>
               </div>
             </div>
           </li>
-          <li class="timeline-inverted">
+          
+          <?php 
+          $contador++;
+          }?>
+          
+
+          <!-- <li class="timeline-inverted">
             <div class="timeline-image">
               <img
                 class="rounded-circle img-fluid"
@@ -327,7 +341,7 @@ $lista_portafolio=$sentencia->fetchAll(PDO::FETCH_ASSOC);
                 </p>
               </div>
             </div>
-          </li>
+          </li> -->
           <li class="timeline-inverted">
             <div class="timeline-image">
               <h4>
